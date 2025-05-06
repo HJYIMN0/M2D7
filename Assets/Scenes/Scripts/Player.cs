@@ -4,22 +4,31 @@ using UnityEngine;
 public class Player
 {
     [SerializeField] public string nome;
-    private int punteggio = 100;
+    private int punteggio;
     [SerializeField] int punteggioPubblico;
 
-    public int IncrementaPunteggio()
+    public int IncrementaPunteggio(int a)
     {
 
-        punteggio++;
+        punteggio += a;
         return punteggio;
 
     }
 
     public int GetPunteggio()
     {
-        punteggioPubblico = punteggio;
-        Debug.Log($"Questo è il punteggio: {punteggioPubblico}");
-        return punteggioPubblico;
+        if (punteggio >= 0)
+        {
+            punteggioPubblico = punteggio;
+            Debug.Log($"Questo è il punteggio: {punteggioPubblico}");
+            return punteggioPubblico;
+        }
+        else
+        {
+            Debug.Log("ERRORE! Il punteggio non è valido!");
+            punteggio = 0;
+            return punteggio;
+        }
     }
 
     public void SetPunteggio(int punteggioPubblico)
@@ -35,8 +44,9 @@ public class Player
         }
     }
 
-    public bool IsVincitore(int a)
+    public bool IsVincitore()
     {
+        int a = GetPunteggio();
         if (a >= 100)
         {
             Debug.Log($"Hai vinto!");

@@ -22,6 +22,10 @@ public class Esercizio04 : MonoBehaviour
         nemico.SubisciDanno(giocatore1.Attacca());
         if (nemico.Gethp() < 0)
         {
+            
+            giocatore1.GetPunteggio();
+            giocatore1.IncrementaPunteggio(10);
+            giocatore1.GetPunteggio();
             nemico.SetHp();
         }
         

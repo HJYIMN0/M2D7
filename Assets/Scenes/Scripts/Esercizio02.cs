@@ -15,9 +15,12 @@ public class Esercizio02 : MonoBehaviour
         giocatore1.GetPunteggio();
         //giocatore1.SetPunteggio(100);
         Debug.Log($"Questo è il valore del punteggio di {giocatore1.nome} prima del moltiplicatore: {giocatore1.GetPunteggio()}");
-        giocatore1.IncrementaPunteggio();
+        giocatore1.IncrementaPunteggio(giocatore1.Attacca());
         Debug.Log($"Questo è il valore del punteggio di {giocatore1.nome} dopo il moltiplicatore: {giocatore1.GetPunteggio()}");
-        giocatore1.IsVincitore(giocatore1.GetPunteggio());
+        giocatore1.IsVincitore();
+        giocatore1.SetPunteggio(110);
+        giocatore1.IsVincitore();
+        giocatore1.SetPunteggio(-220);
 
 
     }
